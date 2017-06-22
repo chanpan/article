@@ -35,7 +35,7 @@ class UserProfileController extends Controller{
        $model = UserProfile::findOne($id);
        if($model->load(Yii::$app->request->post())){
            if($model->save()){
-              $this->goHome();
+             $this->goHome();
            }
        }
        return $this->render("update",[
@@ -49,6 +49,7 @@ class UserProfileController extends Controller{
            $this->goHome();
        }
    }
+   
    public function goHome(){
        return $this->redirect(['index']);
    }
