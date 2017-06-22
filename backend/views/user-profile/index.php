@@ -22,8 +22,19 @@
                 }
                 return $gender;
              }
-         ]
-           
+         ],
+         [
+          'class' => 'yii\grid\ActionColumn',
+          'template' => '{update} {delete}',
+          'buttons'  => [
+                'update' => function ($url, $model) {
+                return Html::a('<i class="glyphicon glyphicon-pencil"></i> Update ', $url, [
+                               'title' => "แก้ไข",
+                               'class' => 'btn btn-warning btn-sm',
+                ]);
+          }],
+                  
+         ]  
        ]
     ]);
 ?>
