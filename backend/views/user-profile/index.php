@@ -17,7 +17,7 @@ Html::a('<i class="glyphicon glyphicon-plus"></i> แก้ไข โปรไ�
     'id' => 'btn-create'
 ])
 ?>
-<hr>
+
 
 <?php
 echo \yii\grid\GridView::widget([
