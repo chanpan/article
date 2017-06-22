@@ -2,11 +2,13 @@
 
 use yii\bootstrap\Html;
 use yii\bootstrap\Alert;
+use yii\bootstrap\Modal;
 $this->title = "User Profile";
 ?>
 <?=
-Html::a('<i class="glyphicon glyphicon-plus"></i> Create', ['create'], [
-    'class' => "btn btn-success"
+Html::a('<i class="glyphicon glyphicon-plus"></i> แก้ไข โปรไฟล์', '#', [
+    'class' => "btn btn-success",
+    'id' => 'btn-create'
 ])
 ?>
 <hr>
@@ -49,4 +51,25 @@ echo \yii\grid\GridView::widget([
         ]
     ]
 ]);
+?>
+<?php 
+    Modal::begin([
+        'id'=>'modal-profile'
+    ]);
+    Modal::end();
+?>
+<?php 
+$this->registerJS("
+   $('#btn-create').on('click',function(e){
+        
+        $.ajax({
+            url:'".yii\helpers\Url::to(['update','id'=>Yii::$app->user-id])."',
+            success:function(data){
+                $('#modal-profile').modal('show');
+                $('#modal-profile .modal-body').html(data);
+            }
+        });
+        
+   });
+");
 ?>

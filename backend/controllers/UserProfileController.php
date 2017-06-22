@@ -26,7 +26,7 @@ class UserProfileController extends Controller{
             $this->goHome();
         }
     }
-    return $this->render("create",[
+    return $this->renderAjax("create",[
          'model'=>$model
     ]);
    }
@@ -38,7 +38,7 @@ class UserProfileController extends Controller{
              $this->goHome();
            }
        }
-       return $this->render("update",[
+       return $this->renderAjax("update",[
            "model"=>$model
        ]);
    }
