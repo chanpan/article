@@ -61,12 +61,15 @@ echo \yii\grid\GridView::widget([
 <?php 
 $this->registerJS("
    $('#btn-create').on('click',function(e){
-        
+        $('#modal-profile .modal-body').html('กำลังโหลด');
         $.ajax({
             url:'".yii\helpers\Url::to(['update','id'=>Yii::$app->user-id])."',
             success:function(data){
                 $('#modal-profile').modal('show');
                 $('#modal-profile .modal-body').html(data);
+            },
+            error:function(err){
+                 $('#modal-profile .modal-body').html(err);
             }
         });
         
