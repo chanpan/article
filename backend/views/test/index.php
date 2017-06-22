@@ -1,9 +1,9 @@
 <?php 
     use yii\bootstrap\ActiveForm;
     use \yii\helpers\Html;     
-    use yii\helpers\ArrayHelper;
-    
+    use yii\helpers\ArrayHelper;    
     use kartik\select2\Select2;
+    use yii\widgets\MaskedInput;
 ?>
 
 <?php $form = ActiveForm::begin();?>
@@ -21,6 +21,8 @@
             'allowClear' => true
         ],
     ]);?>
+    <?= $form->field($model, 'tel')->widget(MaskedInput::className(), [
+    'mask' => '999-999-9999']) ?>
 
     <?= Html::submitButton("save",['class'=>'btn btn-warning'])?>
 <?php ActiveForm::end();?>
