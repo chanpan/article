@@ -80,5 +80,22 @@ $this->registerJS("
         });
         
    });
+   
+    function getUser(){
+        $.ajax({
+            url:'".yii\helpers\Url::to(['user'])."',
+            data:{id:1},
+            type:'POST',
+            dataType:'JSON',
+            success:function(data){
+                $.each(data, function(index,value){
+                    console.log(value.username);
+                });
+            }
+        });
+    }
+    getUser();
+   
+
 ");
 ?>

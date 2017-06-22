@@ -8,7 +8,9 @@ use yii\data\ActiveDataProvider;
 class UserProfileController extends Controller{
    
     public function actionUser(){
-       $user = \common\models\User::find()->all();
+       $id = \Yii::$app->request->post('id','');
+       // id = '' 
+       $user = \common\models\User::find()->where(['id'=>$id])->all();
        return \yii\helpers\Json::encode($user);
     }
 
