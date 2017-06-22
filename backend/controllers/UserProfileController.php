@@ -4,12 +4,16 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use backend\models\UserProfile;
+use yii\data\ActiveDataProvider;
 class UserProfileController extends Controller{
     
    public function actionIndex(){
-     $model = UserProfile::find()->all();
+     $model = UserProfile::find();
+     $dataProvider = new ActiveDataProvider([
+        'query' => $model,
+     ]);
      return $this->render("index",[
-         'model'=>$model
+         'dataProvider'=>$dataProvider
      ]);
    }
    

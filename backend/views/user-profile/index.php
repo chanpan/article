@@ -6,5 +6,10 @@
      'class'=>"btn btn-success"
 ])?>
 
+<table class="table table-bordered">
+    <thead> 
+        <tr>
+    </thead>
+</table>
 
 <h1>User Profile</h1>
