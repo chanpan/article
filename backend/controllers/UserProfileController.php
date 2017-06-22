@@ -6,8 +6,13 @@ use yii\web\Controller;
 use backend\models\UserProfile;
 use yii\data\ActiveDataProvider;
 class UserProfileController extends Controller{
-    
-   public function actionIndex(){
+   
+    public function actionUser(){
+       $user = \common\models\User::find()->all();
+       return \yii\helpers\Json::encode($user);
+    }
+
+    public function actionIndex(){
      $model = UserProfile::find();
      $dataProvider = new ActiveDataProvider([
         'query' => $model,
