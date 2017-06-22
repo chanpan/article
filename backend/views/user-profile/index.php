@@ -5,11 +5,25 @@
 <?= Html::a('<i class="glyphicon glyphicon-plus"></i> Create',['create'],[
      'class'=>"btn btn-success"
 ])?>
+<hr>
 
-<table class="table table-bordered">
-    <thead> 
-        <tr>
-    </thead>
-</table>
-
-<h1>User Profile</h1>
+<?php 
+    echo \yii\grid\GridView::widget([
+       'dataProvider' => $dataProvider,
+       'columns'=>[
+         'fname',
+         'lname',
+         [
+             'attribute'=>'gender',
+             'value'=>function($model){
+                $gender= "หญิง";
+                if($model->gender == 1){
+                   $gender="ชาย";
+                }
+                return $gender;
+             }
+         ]
+           
+       ]
+    ]);
+?>
