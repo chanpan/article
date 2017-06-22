@@ -10,6 +10,15 @@ class TestController extends Controller{
         $file_old = $model->file;
         
         if ($model->load(Yii::$app->request->post())) {
+            
+            $province_lists = $_POST["Test"]["province_select2_multiple"];
+            $province_lists = \yii\helpers\Json::encode($province_lists);
+            
+            
+            $test = \yii\helpers\Json::decode($province_lists);
+            //\yii\helpers\VarDumper::dump($test, 10, true);
+            //exit();
+            
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file !== null) {
                 $nameArr = explode('/', $model->file->type);
@@ -18,7 +27,7 @@ class TestController extends Controller{
             $newFileName = 'test_' . rand('9999', '999999'). '.' . $lname;
             $fullPath = \Yii::getAlias('@frontend') . '/web/image/' . $newFileName;
             $model->file->saveAs($fullPath);
-            \yii\helpers\VarDumper::dump($fullPath, 10, true);exit();
+            //\yii\helpers\VarDumper::dump($fullPath, 10, true);exit();
         }
         
         
