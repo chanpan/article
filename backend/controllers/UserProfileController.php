@@ -26,7 +26,7 @@ class UserProfileController extends Controller{
             $this->goHome();
         }
     }
-    return $this->renderAjax("create",[
+    return $this->render("create",[
          'model'=>$model
     ]);
    }

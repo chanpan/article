@@ -6,6 +6,12 @@ use yii\bootstrap\Modal;
 $this->title = "User Profile";
 ?>
 <?=
+Html::a('<i class="glyphicon glyphicon-plus"></i> Create', ['create'], [
+    'class' => "btn btn-warning"
+])
+?>
+
+<?=
 Html::a('<i class="glyphicon glyphicon-plus"></i> แก้ไข โปรไฟล์', '#', [
     'class' => "btn btn-success",
     'id' => 'btn-create'
