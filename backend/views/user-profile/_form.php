@@ -8,7 +8,7 @@
     <?= $form->field($model, "lname")->textInput();?>
     <?= $form->field($model, "gender")->radioList(['1'=>'ชาย','2'=>'หญิง']);?>
     <?= $form->field($model, "tel")->widget(\yii\widgets\MaskedInput::className(), [
-            'mask' => '9999999999',
+            'mask' => '0999999999',
         ]);?>
     <?= $form->field($model, "address")->textInput();?>
     <?= $form->field($model, "image")->textInput();?>

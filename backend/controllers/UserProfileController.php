@@ -19,14 +19,33 @@ class UserProfileController extends Controller{
         $user_id = \Yii::$app->user->identity->id;
         $model->user_id = $user_id;
         if($model->save()){
-            return $this->redirect(["index"]);
+            $this->goHome();
         }
-        
     }
-    
     return $this->render("create",[
          'model'=>$model
     ]);
    }
    
+   public function actionUpdate($id){
+       $model = UserProfile::findOne($id);
+       if($model->load(Yii::$app->request->post())){
+           if($model->save()){
+              $this->goHome();
+           }
+       }
+       return $this->render("update",[
+           "model"=>$model
+       ]);
+   }
+   
+   public function actionDelete($id){
+       $delete = UserProfile::findOne($id)->delete();
+       if($delete){
+           $this->goHome();
+       }
+   }
+   public function goHome(){
+       return $this->redirect(['index']);
+   }
 }
