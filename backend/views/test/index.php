@@ -7,7 +7,9 @@
     use \yii\jui\DatePicker;
 ?>
 
-<?php $form = ActiveForm::begin();?>
+<?php $form = ActiveForm::begin([
+    'options'=>['enctype'=>'multipart/form-data']
+]);?>
     
 <?php echo $form->field($model, 'province_txt', [
     'inputTemplate' => '<div class="input-group"><span class="input-group-addon">@</span>{input}</div>',
@@ -54,6 +56,8 @@
     <?= $form->field($model, "province_radio")->radioList(
         ArrayHelper::map($provinceList,'PROVINCE_ID','PROVINCE_NAME')
     )?>
+    
+    <?= $form->field($model, 'file')->fileInput()?>
 
     <?= Html::submitButton("save",['class'=>'btn btn-warning'])?>
 <?php ActiveForm::end();?>

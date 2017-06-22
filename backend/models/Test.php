@@ -8,4 +8,5 @@ class Test extends Model{
   public $tel;
   public $date;
   public $province_select2_multiple;
+  public $file;
 }
